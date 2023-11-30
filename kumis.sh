@@ -3,8 +3,8 @@
 #install
 apt update && apt upgrade
 apt install python3 python3-pip git
-git clone https://github.com/SatanTech/jamal.git
-unzip jamal/kyt.zip
+git clone https://github.com/SatanTech/xolpanel1.git
+unzip xolpanel1/xolpanel1.zip
 pip3 install -r kyt/requirements.txt
 pip3 install pillow
 
@@ -13,9 +13,9 @@ echo ""
 read -e -p "[*] Input your Bot Token : " bottoken
 read -e -p "[*] Input Your Id Telegram :" admin
 read -e -p "[*] Input Your Domain :" domain
-echo -e BOT_TOKEN='"'$bottoken'"' >> /root/xolpanel/var.txt
-echo -e ADMIN='"'$admin'"' >> /root/xolpanel/var.txt
-echo -e DOMAIN='"'$domain'"' >> /root/xolpanel/var.txt
+echo -e BOT_TOKEN='"'$bottoken'"' >> /root/xolpanel1/var.txt
+echo -e ADMIN='"'$admin'"' >> /root/xolpanel1/var.txt
+echo -e DOMAIN='"'$domain'"' >> /root/xolpanel1/var.txt
 clear
 echo "Done"
 echo "Your Data Bot"
@@ -26,22 +26,22 @@ echo "Api Key        : $domain"
 echo -e "==============================="
 echo "Setting done"
 
-cat > /etc/systemd/system/kumis.service << END
+cat > /etc/systemd/system/xolpanel.service << END
 [Unit]
-Description=Simple kumis - @XolPanel
+Description=Simple XolPanel - @XolPanel
 After=network.target
 
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/python3 -m kumis
+ExecStart=/usr/bin/python3 -m xolpanel1
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 END
 
-systemctl start kumis 
-systemctl enable kumis
+systemctl start xolpanel1 
+systemctl enable xolpanel1
 
 clear
 
