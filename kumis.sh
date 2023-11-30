@@ -26,22 +26,22 @@ echo "Api Key        : $domain"
 echo -e "==============================="
 echo "Setting done"
 
-cat > /etc/systemd/system/xolpanel.service << END
+cat > /etc/systemd/system/kumis.service << END
 [Unit]
-Description=Simple XolPanel - @XolPanel
+Description=Simple kumis - @XolPanel
 After=network.target
 
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/python3 -m xolpanel
+ExecStart=/usr/bin/python3 -m kumis
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 END
 
-systemctl start xolpanel 
-systemctl enable xolpanel
+systemctl start kumis 
+systemctl enable kumis
 
 clear
 
